@@ -1,20 +1,36 @@
 import json
+import requests
 
 def serealize():
 
     data = {
         "nome": "João Batista Machado",
-        "idade": 31
+        "idade": 31,
+        "endereco":{
+            "rua" : "avenida iguaçu",
+            "numero": 2666
+        }
     }
+
+    print(data.get("nome"))
+    print(data["endereco"])
 
     with open("data_file_2.json", "w") as write_file:
         json.dump(data, write_file)
+        print(data.keys())
 
 def deserialize():
     with open("data_file_2.json", "r") as read_file:
         data = json.load(read_file)
         print(data)
 
+def deseralize_requests():
+    response = requests.get("https://jsonplaceholder.typicode.com/todos")
+    # todos = json.loads(response.text)
+    todos = response.json()
+    print(json.dumps(todos, indent=4))
+
 if __name__ == '__main__':
     serealize()
     deserialize()
+    deseralize_requests()
