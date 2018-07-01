@@ -1,0 +1,20 @@
+import json
+
+def serealize():
+
+    data = {
+        "nome": "João Batista Machado",
+        "idade": 31
+    }
+
+    with open("data_file_2.json", "w") as write_file:
+        json.dump(data, write_file)
+
+def deserialize():
+    with open("data_file_2.json", "r") as read_file:
+        data = json.load(read_file)
+        print(data)
+
+if __name__ == '__main__':
+    serealize()
+    deserialize()
