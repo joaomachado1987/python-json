@@ -42,10 +42,13 @@ def dic_for():
         ]
     }
 
-    cars = my_cars["cars"]
+    for key, value in my_cars.items():
+        print(key, value, sep=" -> ")
 
-    for car in cars:
-        print(car)
+    print(len(my_cars))
+
+    print(my_cars.values())
+
 
 if __name__ == '__main__':
     serealize()
