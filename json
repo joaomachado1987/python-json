@@ -13,6 +13,7 @@ def serealize():
     }
 
     print(data.get("nome"))
+    data["nome"] = "Francine Teixeira"
     print(data["endereco"])
 
     with open("data_file_2.json", "w") as write_file:
@@ -30,7 +31,24 @@ def deseralize_requests():
     todos = response.json()
     print(json.dumps(todos, indent=4))
 
+def dic_for():
+    my_cars = {
+        "name": "John",
+        "age": 30,
+        "cars": [
+            {"name": "Ford", "models": ["Fiesta", "Focus", "Mustang"]},
+            {"name": "BMW", "models": ["320", "X3", "X5"]},
+            {"name": "Fiat", "models": ["500", "Panda"]}
+        ]
+    }
+
+    cars = my_cars["cars"]
+
+    for car in cars:
+        print(car)
+
 if __name__ == '__main__':
     serealize()
     deserialize()
     deseralize_requests()
+    dic_for()
